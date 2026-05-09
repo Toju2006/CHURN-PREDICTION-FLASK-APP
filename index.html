@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Churn Predictor</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; line-height: 1.6; }
+        input { margin-bottom: 10px; padding: 8px; width: 250px; }
+        button { padding: 10px 20px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Customer Churn Prediction</h1>
+    <form action="/predict" method="post">
+        <input type="number" step="any" name="TotalCharges" placeholder="Total Charges" required><br>
+        <input type="number" name="tenure" placeholder="Tenure (Months)" required><br>
+        <input type="number" step="any" name="MonthlyCharges" placeholder="Monthly Charges" required><br>
+        
+        <!-- For binary/categorical features, use 1 for Yes/Optic and 0 for No -->
+        <input type="number" name="FiberOptic" placeholder="Fiber Optic (1=Yes, 0=No)" required><br>
+        <input type="number" name="ElectronicCheck" placeholder="Electronic Check (1=Yes, 0=No)" required><br>
+        <input type="number" name="TwoYearContract" placeholder="Two Year Contract (1=Yes, 0=No)" required><br>
+        <input type="number" name="Male" placeholder="Gender Male (1=Yes, 0=No)" required><br>
+        <input type="number" name="Paperless" placeholder="Paperless Billing (1=Yes, 0=No)" required><br>
+        <input type="number" name="OnlineSecurity" placeholder="Online Security (1=Yes, 0=No)" required><br>
+        <input type="number" name="TechSupport" placeholder="Tech Support (1=Yes, 0=No)" required><br>
+        
+        <button type="submit">Predict Churn Status</button>
+    </form>
+
+    <h2>{{ prediction_text }}</h2>
+</body>
+</html>
